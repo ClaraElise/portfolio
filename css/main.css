@@ -1,0 +1,618 @@
+html, body, .container {
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+@keyframes letterSpace {
+   0% { letter-spacing: -40px; }
+   100% { letter-spacing: 40px; }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #010712;
+    font-family: 'Trispace', sans-serif;
+    color: #fff;
+    font-size: 16px;
+    position: relative;
+    overflow: hidden;
+}
+
+body p {
+    line-height: 28px;
+}
+
+.overlay{
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    position: absolute;
+    z-index: 99;
+    opacity: 0.08;
+    border-radius: 50%;
+    filter: blur(220px);
+}
+
+.scroll-bg {
+    width: calc(100% - 2px);
+    height: 10px;
+    opacity: 0;
+    background: #010712; /* Old browsers */
+    left: 0;
+    bottom: 20px;
+    position: fixed;
+    border: 2px solid #FE96CD;
+    border-radius: 50px;
+    z-index: 99999;
+    transition: width 0.3s ease-out;
+    -webkit-transition: width 0.3s ease-out;
+    -moz-transition: width 0.3s ease-out;
+}
+
+.scroll-bg.show {
+    opacity: 1;
+}
+
+.scroll-bg.works {
+    opacity: 0 !important;
+}
+
+.scroll-bg .scroll.show {
+    opacity: 1;
+}
+
+.scroll-bg .scroll {
+    width: 40px;
+    height: 10px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #fff;
+    border-radius: 50px;
+    opacity: 0;
+    transition: width 0.3s ease-out;
+    -webkit-transition: width 0.3s ease-out;
+    -moz-transition: width 0.3s ease-out;
+}
+
+.horiz-wrap {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    opacity: 0;
+}
+
+.horiz-wrap.loaded {
+    opacity: 1;
+}
+
+.to-works {
+    background: #fe96cd;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    bottom: 40px;
+    margin: auto;
+    left: 0;
+    right: 0;
+    cursor: pointer;
+}
+
+.loading-wrap {
+    z-index: 999999;
+}
+
+.loading-gif {
+    position: absolute;
+    width: 160px;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 50%;
+    margin-top: -80px;
+}
+
+.loading-gif.stop {
+  display: none;
+}
+
+.section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #010712;
+}
+
+.section.home {
+    z-index: 99;
+}
+
+.section.about {
+    z-index: 999;
+    left: -100%;
+}
+
+.section.works {
+    z-index: 9999;
+    top: auto;
+    bottom: -100%;
+    height: 100%;
+    display: none;
+    table-layout: auto;
+}
+
+.section.works.show {
+    display: table;
+}
+
+.section.works .table-cell {
+    vertical-align: middle;
+}
+
+.section.works .table-cell:first-child {
+    width: 33.3%;
+}
+
+.section.works .table-cell:nth-child(2) {
+    padding-right: 120px;
+}
+
+.clear {
+    clear: both;
+}
+
+.lottie {
+    position: relative;
+    height: 100%;
+}
+
+.table {
+    display: table;
+    width: 100%;
+    height: 100vh;
+    table-layout: fixed;
+}
+
+.table-cell {
+    padding: 40px;
+    position: relative;
+    display: table-cell;
+    vertical-align: top;
+    box-sizing: border-box;
+}
+
+.table-cell .title {
+    font-size: 20px;
+}
+
+.skills-wrap {
+    padding: 20px 80px 20px 0;
+}
+
+.skill-item {
+    width: 100%;
+    border: 1px solid #fe96cd;
+    border-radius: 50px;
+    position: relative;
+    margin: 15px 0;
+}
+
+.skill-progress {
+    background: #fe96cd;
+    height: 24px;
+    width: 0px;
+    opacity: 0;
+    border: 1px solid #fe96cd;
+    border-radius: 50px;
+    transition-duration: 0.3s;
+}
+
+.skills-wrap.second .skill-progress {
+    transition-delay: 500ms;
+}
+
+.skills-wrap.third .skill-progress {
+    transition-delay: 500ms;
+}
+
+.skill-progress.show {
+   width: 100%;
+   opacity: 1;
+}
+
+.skill-progress.medium.show {
+    width: 70%;
+}
+
+.skill-title {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    font-size: 20px;
+    margin-top: -11px;
+    color: #010712;
+    z-index: 9999;
+}
+
+#lottieContainer-home {
+    width: 100%;
+}
+
+#lottieContainer-home svg {
+    max-height: 100%;
+}
+
+#lottieContainer-about {
+    position: relative;
+}
+
+.about .table.absolute {
+    /* table-layout: auto; */
+}
+
+/* #lottieContainer-home.loaded, #lottieContainer-bubble.loaded {
+    opacity: 1;
+} */
+
+#lottieContainer-about svg {
+    position: absolute;
+    bottom: -40px;
+    left: 0; 
+}
+
+#lottieContainer-bubble {
+    position: absolute;
+    left: 50%;
+    margin-left: -5%;
+    top: 0;
+    z-index: 999999;
+    width: 30%;
+    height: 100%;
+}
+
+#lottieContainer-bubble svg {
+    bottom: 62%;
+    position: absolute;
+    height: auto !important;
+}
+
+#lottieContainer-home-mobile {
+    display: none;
+}
+
+#lottieContainer-home.hide {
+    display: none;
+}
+
+.inner-wrap {
+    text-align: center;
+}
+
+.description > .title {
+    font-size: 50px;
+    letter-spacing: 40px;
+    padding: 20px 0;
+    opacity: 0;
+}
+
+.description > .title.show {
+    animation: letterSpace 1s ease-out;
+    -webkit-animation: letterSpace 1s ease-out;
+    opacity: 1;
+}
+
+.projects {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.projects.show {
+    display: block;
+}
+
+.proj-inner {
+    margin-top: 80px;
+    padding: 40px;
+}
+
+.proj-item:first-child {
+    width: 100%;
+    border-top: 1px solid #fe96cd;
+}
+
+.proj-item .title, .proj-item .proj-description {
+   display: table-cell;
+   padding: 40px;
+}
+
+.proj-item .title {
+    border-right: 1px solid #fe96cd;
+    width: 33.3%;
+    line-height: 30px;
+}
+
+.proj-item{
+    background: #010712;
+    border-bottom: 1px solid #fe96cd;
+    display: table;
+    width: 100%;
+}
+
+.proj-item .link {
+    padding-top: 20px;
+}
+
+.proj-item .link a{
+    color: #fe96cd;
+    line-height: 30px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+}
+
+.proj-item .link a:hover{
+    color: #fff;
+}
+
+.loading-wrap {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+body.tablet, body.mobile {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+}
+
+body.tablet .scroll-wrap, body.mobile .scroll-wrap {
+    display: none;
+}
+
+body.tablet .horiz-wrap {
+    height: auto;
+}
+
+body.tablet .section {
+    position: relative;
+    height: auto;
+    left: 0!important;
+    bottom: auto !important;
+    top: auto !important;
+}
+
+body.tablet .section.home {
+    height: 100vh;
+}
+
+body.tablet #lottieContainer-home {
+    height: 100%;
+}
+
+body.tablet .works, body.tablet .projects {
+    display: block !important;
+}
+
+body.tablet .lottie {
+    height: auto;
+}
+
+body.tablet .about .table {
+    table-layout: fixed;
+    height: auto;
+}
+
+body.tablet .table .table-cell {
+    width: 50%;
+}
+
+body.mobile #lottieContainer-home{
+    display: none;
+}
+
+body.mobile #lottieContainer-bubble, body.portrait #lottieContainer-bubble  {
+    margin-left: -17%;
+    width: 70%;
+}
+
+body.mobile #lottieContainer-bubble svg, body.portrait #lottieContainer-bubble svg {
+   bottom: 67%;
+}
+
+body.mobile #lottieContainer-about svg {
+    bottom: -80px;
+}
+
+@media screen and (max-width: 1600px) {
+    .skill-title {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .skill-title {
+        font-size: 16px;
+    }
+
+    .about .table {
+        table-layout: auto;
+    }
+
+    .about .table #lottieContainer-about {
+        position: absolute;
+        top: auto;
+        bottom: 50px;
+        right: 40px;
+        width: 300px;
+        height: 300px;
+        display: block;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+
+    .horiz-wrap {
+        height: auto;
+    }
+
+    .section {
+        position: relative;
+        height: auto;
+        left: 0!important;
+        bottom: auto !important;
+        top: auto !important;
+    }
+
+    .section.home {
+        height: 100vh;
+    }
+
+    #lottieContainer-home {
+        height: 100%;
+    }
+
+    .works, .projects {
+        display: block !important;
+    }
+
+    .lottie {
+        height: auto;
+    }
+
+    .about .table {
+        table-layout: fixed;
+        height: auto;
+    }
+
+    .table .table-cell {
+        width: 50%;
+    }
+
+    .loading-gif {
+        width: 150px;
+    }
+
+    .loading-gif img {
+        width: 150px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    @keyframes letterSpace {
+        0% { letter-spacing: -30px; text-indent: 0px; }
+        100% { letter-spacing: 30px; text-indent: 17px; }
+    }
+
+    .table {
+        display: block;
+    }
+
+     .table .table-cell {
+        width: 100%;
+        display: block;
+    }
+
+   
+
+    .section.works .table-cell:first-child {
+        width: 100%;
+        padding-bottom: 0;
+    }
+
+    .section.works .table-cell:nth-child(2) {
+        padding-top: 0;
+        padding-right: 40px;
+        width: 100% !important;
+    }
+
+    .about .table #lottieContainer-about {
+        position: relative;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+        height: 300px;
+        padding: 0;
+    }
+
+    #lottieContainer-bubble svg{
+        bottom: 59%;
+    }
+    
+    .loading-gif {
+        width: 100px;
+    }
+
+    .loading-gif img {
+        width: 100px;
+    }
+
+    .proj-item .proj-description {
+        padding: 0;
+    }
+    
+    
+    .proj-item .title, .proj-item .proj-description {
+        display: block;
+        padding: 0;
+    }
+
+    .proj-item .title {
+        border: 0;
+        width: 100%;
+        padding: 0;
+        padding: 40px 0;
+    }
+
+    .proj-item .link {
+        padding: 20px 0;
+    }
+
+    .skills-wrap {
+        padding: 10px 0;
+    }
+
+    .about .table-cell {
+        padding: 0 40px;
+        width: 100% !important;
+    }
+
+    .skill-progress.medium.show {
+        width: 82%;
+    }
+    
+    #lottieContainer-home-mobile {
+        display: block;
+        height: 100%;
+    }
+
+}
+
+@media screen and (max-width: 560px) {
+     #lottieContainer-bubble svg{
+        bottom: 56%;
+    }
+
+    .description > .title {
+        font-size: 30px;
+        letter-spacing: 30px;
+        text-indent: 17px;
+    }
+}
+
+@media screen and (min-width: 3000px) {
+    #lottieContainer-bubble svg{
+       bottom: 46%;
+   }
+}
